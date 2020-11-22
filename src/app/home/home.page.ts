@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +8,47 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  private nome : string;
-  private email: string;
-  private telefone: string;
+  public numero1: number;
+  public numero2: number;
 
-  constructor() {}
+  public operacao: string;
 
-  vaiFormulario() {
-        console.log(this.nome);
-        console.log(this.email);
-        console.log(this.telefone);
+  constructor(public alertController: AlertController) {}
+
+  async vaiFormulario() {
+
+    let total = 0;
+
+    switch(this.operacao) {
+      case "add" :
+        total = this.numero1 + this.numero2;
+        break;
+
+      case "sub" :
+        total = this.numero1 - this.numero2;
+        break;  
+
+      case "mul" :
+        total = this.numero1 * this.numero2;
+        break;   
+
+      case "sub" :
+        total = this.numero1 / this.numero2;
+        break;   
+      
+      default:
+        total = 0;
+    }
+                     
+    const alert = await this.alertController.create({
+        
+      header: 'O resultado é de:',
+      message: total,
+      buttons: ['Vai']
+    });
+
+    await alert.present();
+
   }
 
 }

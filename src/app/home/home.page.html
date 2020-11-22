@@ -11,18 +11,23 @@
 <form (ngSubmit)="vaiFormulario">
 
   <ion-item>
-    <ion-label position="floating">Nome:</ion-label>
-    <ion-input [(ngModel)]="nome" type="text" name="nome"></ion-input>
+    <ion-label position="floating">Insira o primeiro número</ion-label>
+    <ion-input [(ngModel)]="numero1" type="number" name="numero1"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">E-mail:</ion-label>
-    <ion-input [(ngModel)]="email" type="email" name="email"></ion-input>
+    <ion-label position="floating">Insira o segundo número</ion-label>
+    <ion-input [(ngModel)]="numero2" type="number" name="numero2"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Telefone:</ion-label>
-    <ion-input [(ngModel)]="telefone" type="tel" name="telefone"></ion-input>
+    <ion-label>Operação</ion-label>
+    <ion-select placeholder="Selecione um operação" [(ngModel)]="operacao" name="operacao">
+      <ion-select-option value="add">Adição</ion-select-option>
+      <ion-select-option value="sub">Subtração</ion-select-option>
+      <ion-select-option value="mul">Multiplicação</ion-select-option>
+      <ion-select-option value="div">Divisão</ion-select-option>
+    </ion-select>
   </ion-item>
 
   <ion-button expand="block"
