@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Meu App
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true"> 
+      
+      <ion-item *ngFor="let serie of series">
+          <ion-label>
+              <h2>{{serie.nome}}</h2>
+              <p>{{serie.nota}}</p>
+              <app-avaliacao [nota]="serie.nota"></app-avaliacao>
+              <br>  
+              <a [routerLink]="['/series/info', serie.id]">Detalhes</a>
+
+          </ion-label>
+      </ion-item>
+
+  </ion-content>

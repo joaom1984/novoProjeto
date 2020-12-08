@@ -17,7 +17,7 @@ export class HomePage {
 
   async vaiFormulario() {
 
-    let total = 0;
+    let total = null;
 
     switch(this.operacao) {
       case "add" :

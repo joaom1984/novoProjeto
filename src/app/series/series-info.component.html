@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Meu App
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true"> 
+      <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>{{serie.nome}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+                A série foi lançada em {{serie.dataLancamento}} e possui {{serie.temporadas}}
+                temporadas.
+                <app-avaliacao nota="{{serie.nota}}"></app-avaliacao>
+            </ion-card-content>
+      </ion-card>
+
+  </ion-content>
