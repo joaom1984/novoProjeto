@@ -11,7 +11,7 @@ export class SeriesInfoComponent implements OnInit {
     
     public serie;
     
-    constructor(private activatedRoute: ActivatedRoute, private seriesService) {}
+    constructor(private activatedRoute: ActivatedRoute, private seriesService: SeriesService) {}
 
     ngOnInit() {
         const id = this.activatedRoute.snapshot.paramMap.get("id");
