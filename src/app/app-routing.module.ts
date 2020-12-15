@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SeriesAddComponent } from './series/series-add.component';
 import { SeriesInfoComponent } from './series/series-info.component';
 import { SeriesListComponent } from './series/series-list.component';
 
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'series/info/:id',
     component: SeriesInfoComponent
+  },
+  {
+    path: 'series/add',
+    component: SeriesAddComponent
   }
 ];
 

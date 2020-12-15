@@ -62,4 +62,8 @@ export class SeriesService {
 
     return serie;
   }
+
+  adicionarSerie(serie) {
+    this.series.push(serie);
+  }
 }

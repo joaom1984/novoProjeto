@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -10,15 +11,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SeriesListComponent } from './series/series-list.component';
 import { SeriesInfoComponent } from './series/series-info.component';
+import { SeriesAddComponent} from './series/series-add.component';
 import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 
 @NgModule({
   declarations: [AppComponent,
     SeriesListComponent, 
     SeriesInfoComponent,
+    SeriesAddComponent,
     AvaliacaoComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
