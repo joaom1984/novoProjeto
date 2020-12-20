@@ -14,4 +14,8 @@ export class SeriesListComponent implements OnInit {
     ngOnInit() {
       this.series = this.seriesService.pegarTodasSeries();
     }
+
+    removerSerie(id){
+      this.seriesService.removerSeriePorId(id);
+    }
 }
