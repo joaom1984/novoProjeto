@@ -64,7 +64,24 @@ export class SeriesService {
   }
 
   adicionarSerie(serie) {
+    if(serie.id == null) {
+    //adicionar 
     this.series.push(serie);
+  } else {
+    this.atualizarSerie(serie);
+  }
+  }
+
+  atualizarSerie(serie) {
+
+  for(let i=0; i< this.series.length; i++) {
+      
+    if(this.series[i].id == serie.id) {
+      this.series[i] = serie;
+      break;
+    }
+
+  }
   }
 
   removerSeriePorId(idSerie){
