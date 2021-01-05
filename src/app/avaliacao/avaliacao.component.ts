@@ -27,7 +27,7 @@ export class AvaliacaoComponent implements OnChanges {
                 nomeIcone = "heart-half";
             }
 
-            if(this.nota > maximo) {
+            if(this.nota >= maximo) {
                 nomeIcone = "heart";
             }
 
