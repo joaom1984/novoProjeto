@@ -1,51 +1,33 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeriesService {
 
-  private series = [{
-    id: 1,
-    nome: 'Futurama',
-    dataLancamento: '10 de Nov de 2000',
-    temporadas: 5,
-    nota: 1.5    
-  },
-  {
-    id: 2,
-    nome: 'The Simpsons',
-    dataLancamento: '10 de Dez de 1989',
-    temporadas: 30,
-    nota: 3.2 
-  },
-  {
-    id: 3,
-    nome: 'Rick and Morty',
-    dataLancamento: '10 de Fev de 2018',
-    temporadas: 4,
-    nota: 3.9  
-    },
-  {
-    id: 4,
-    nome: 'American Dad',
-    dataLancamento: '02 de Abr de 2000',
-    temporadas: 10,
-    nota: 4.5  
-    },  
-  {
-    id: 5,
-    nome: 'Breaking Bad',
-    dataLancamento: '13 de Mai de 2009',
-    temporadas: 5,
-    nota: 5  
-    }
-  ];
+  constructor(private storage: Storage) { }
 
-  constructor() { }
+  salvarDadosNoNavegador() {
+    this.storage.set('nome', 'Lisa');
+  }
 
+  pegarDadosNoNavegador() {
+    this.storage.get('nome').then((vaLorDoElemento) => {
+      console.log(vaLorDoElemento);
+    })
+  }
+
+  private series = [];
+ 
   pegarTodasSeries() {
-     return this.series;
+    this.series = [];
+    this.storage.forEach((eLemento) => {
+      this.series.push(JSON.parse(eLemento));
+    });
+
+    return this.series;
   }
 
   pegarSeriePorId(idSerie) {
@@ -66,7 +48,10 @@ export class SeriesService {
   adicionarSerie(serie) {
     if(serie.id == null) {
     //adicionar 
-    this.series.push(serie);
+
+    serie.id = uuidv4(); 
+    this.storage.set(serie.id, JSON.stringify(serie));
+
   } else {
     this.atualizarSerie(serie);
   }
